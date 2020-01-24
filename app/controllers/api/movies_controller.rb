@@ -2,24 +2,28 @@ class Api::MoviesController < ApplicationController
 
   def show
     @movie = Movie.find_by(id: params["id"])
-    render "show.json.jb"
+    render 'show.json.jb'
   end
 
   def index
     @movies = Movie.all
-    render "index2.json.jb"
+    render 'index2.json.jb'
   end
 
   def create
     @movie = Movie.new(
+      id: params[:id],
       title: params[:title],
       year: params[:year],
       plot: params[:plot],
       english: params[:english],
       rating: params[:rating]
     )
-    @movie.save
-    render "show.json.jb"
+    if @movie.save
+      render 'show.json.jb'
+    else
+      render json: {errors: movie.errors.full_messages}, status: :unproccessable_entity
+    end
   end
 
   def update
@@ -31,8 +35,11 @@ class Api::MoviesController < ApplicationController
     @movie.english = params[:english] || @movie.english,
     @movie.rating = params[:rating] || @movie.rating
   
-    @movie.save
-    render "index2.json.jb"
+    if @movie.save
+      render "show.json.jb"
+    else
+      render json: {errors: movie.errors.full_messages}, status: :unproccessable_entity
+    end
   end
 
   def destroy
