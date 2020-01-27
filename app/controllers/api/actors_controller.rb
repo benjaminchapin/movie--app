@@ -11,18 +11,8 @@ class Api::ActorsController < ApplicationController
   end
 
   def index
-    @actors = Actor.all
+    @actors = Actor.all(order(age: :desc)
     render "index.json.jb"
-  end
-
-  def query_action
-    @actor = Actor.find_by(id:params["id"])
-    render "show.json.jb"
-  end
-
-  def segment
-    @actor = Actor.find_by(name:params["fid"])
-    render "show.json.jb"
   end
 
   def create

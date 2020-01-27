@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
     get "/actors_url" => "actors#index" 
 
-    get "/actors_url/:id" => "actors#query_action"
-
     post "/actors_url" => "actorss#create"
 
     patch "/actors_url/:id" => "actors#update"
