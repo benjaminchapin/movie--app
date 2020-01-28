@@ -6,4 +6,6 @@ class Actor < ApplicationRecord
 
   validates :age, numericality: {greater_than: 13 }
 
+  belongs_to :movie 
+
 end

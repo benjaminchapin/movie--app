@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   namespace :api do
-    get "/actors_url/first" => "actors#actor_method"  
   
     get "/actors_url/:id" => "actors#show" 
 
