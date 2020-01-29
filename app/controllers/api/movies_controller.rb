@@ -1,4 +1,4 @@
-class Api::MoviesController < ApplicationController
+  class Api::MoviesController < ApplicationController
 
   def show
     @movie = Movie.find_by(id: params["id"])
