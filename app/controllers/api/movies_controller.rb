@@ -1,4 +1,6 @@
-  class Api::MoviesController < ApplicationController
+class Api::MoviesController < ApplicationController
+
+  before_action :authenticate_admin, except: [:index, :show]
 
   def show
     @movie = Movie.find_by(id: params["id"])
@@ -34,7 +36,7 @@
     @movie.director = params[:director] || @movie.director,
     @movie.english = params[:english] || @movie.english,
     @movie.rating = params[:rating] || @movie.rating
-  
+
     if @movie.save
       render "show.json.jb"
     else
