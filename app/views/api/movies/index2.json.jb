@@ -8,7 +8,8 @@
     plot: movie.plot,
     director: movie.director,
     english: movie.english,
-    rating: movie.rating
+    rating: movie.rating,
+    genres: movie.genres
   }
 
 end
