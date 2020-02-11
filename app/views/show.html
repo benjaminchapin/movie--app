@@ -1,0 +1,8 @@
+<h2><%= @actor.first_name %><%= @actor.last_name %></h2>
+<h4><%= @actor.age %></h4>
+<h4><%= @actor.gender %></h4>
+<h4><%= @actor.kwown_for %></h4>
+
+<br>
+<a href="/actors/<%= @actor.id %>/edit">Edit</a>
+<a href="/actors/<%= @actor.id %>" data-method="delete">Delete</a>

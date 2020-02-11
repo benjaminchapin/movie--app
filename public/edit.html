@@ -1,0 +1,18 @@
+<h1>Edit <%= @actor.first_name %> <%= @actor.last_name %> Info</h1>
+
+<form action="/actors/<%= @actor.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    First Name: <input type="text" name="first_name" value="<%= @actor.first_name %>">
+  </div>
+  <div>
+    Last Name: <input type="text" name="last_name" value="<%= @actor.last_name %>">
+  </div>
+  <div>
+    Age: <input type="integer" name="age" value="<%= @actor.age %>">
+  </div>
+  <div>
+    Known For: <input type="text" name="known_for" value="<%= @actor.known_for %>">
+  </div>
+  <input type="submit" value="Update Actor">
+</form>

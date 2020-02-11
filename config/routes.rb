@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  get "/actors" => "actors#index"
+  get "/actors/new" => "actors#new"
+  get "/actors/:id" => "actors#show"
+  post "/actors" => "actors#create"
+  get "/actors/:id/edit" => "actors#edit"
+  patch "/actors/:id" => "actors#update"
+  delete "/actors/:id" => "actors#destroy"
+
   namespace :api do
     get "/actors_url/:id" => "actors#show" 
     get "/actors_url" => "actors#index" 
